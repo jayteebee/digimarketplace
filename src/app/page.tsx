@@ -10,6 +10,7 @@ export default function Home() {
         <h1
         className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
         >Your Marketplace for high-quality <span className="text-blue-600">digital assets</span>.</h1>
+        <p>Welcome to DigitalHippo. Every asset on our platform is verified by our team to ensure our highest quality standards.</p>
       </div>
     </MaxWidthWrapper>
   );
