@@ -1,5 +1,6 @@
 import express from 'express';
 import { getPayloadClient } from './get-payload';
+import { nextHandler } from './next-utils';
 
 const app = express()
 const PORT = Number(process.env.PORT) || 3000
@@ -13,6 +14,7 @@ const start = async () => {
             }
         }
     })
+    nextHandler(req,res)
 }
 
 start()
