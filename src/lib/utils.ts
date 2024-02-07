@@ -9,6 +9,8 @@ export function formatPrice(
   price: number | string,
   options: {
     currency?: "USD" | "EUR" | "GBP" | "BDT",
-    notation?: Intl.NumberFormatOptions["notation"],
-  }
-)
+    notation?: Intl.NumberFormatOptions["notation"]
+  } = {}
+) {
+  const {currency= "USD", notation = "compact"} = options
+}
