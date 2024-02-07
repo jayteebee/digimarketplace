@@ -1,12 +1,15 @@
 "use client";
 import { ShoppingCartIcon } from "lucide-react";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Separator } from "./ui/separator";
 import { formatPrice } from "@/lib/utils";
+import { buttonVariants } from "./ui/button";
+import Link from "next/link";
 
 const Cart = () => {
 
     const itemCount = 1
+    const fee = 1
   return (
     <Sheet>
       <SheetTrigger className="group -m-2 flex items-center p-2">
@@ -34,9 +37,21 @@ const Cart = () => {
                         </div>
                         <div className="flex">
                             <span className="flex-1">Transaction Fee</span>
-                            <span>{formatPrice(1)}</span>
+                            <span>{formatPrice(fee)}</span>
+                        </div>
+                        <div className="flex">
+                            <span className="flex-1">Total</span>
+                            <span>{formatPrice(fee)}</span>
                         </div>
                     </div>
+
+                    <SheetFooter>
+                        <SheetTrigger asChild>
+                            <Link href="/cart" className={buttonVariants({className: "w-full"})}>
+                                Continue to checkout
+                            </Link>
+                        </SheetTrigger>
+                    </SheetFooter>
                 </div>
             </>
         ) : (<div></div>)}
