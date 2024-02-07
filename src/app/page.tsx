@@ -19,6 +19,7 @@ export default function Home() {
           <Button variant="ghost">Our Quality Promise &rarr;</Button>
         </div>
       </div>
+      {/* TODO: List products */ }
     </MaxWidthWrapper>
   );
 }
