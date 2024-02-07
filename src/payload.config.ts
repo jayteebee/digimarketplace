@@ -10,7 +10,12 @@ export default buildConfig({
         admin: "/sell"
     },
     admin: {
-        bundler: webpackBundler()
+        bundler: webpackBundler(),
+        meta: {
+            titleSuffix: "- DigitalHippo",
+            favicon: "/favicon.ico",
+            ogImage: "/thumbnail.jpg"
+        }
     },
     editor: slateEditor({}),
     db: mongooseAdapter({
