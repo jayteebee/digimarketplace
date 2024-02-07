@@ -18,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className={cn("relative h-full font-sans antialiased", inter.className)}>{children}</body>
+      <main className="relative flex flex-col min-h-screen"></main>
     </html>
   );
 }
