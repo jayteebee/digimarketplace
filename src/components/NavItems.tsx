@@ -1,6 +1,8 @@
+"use client"
+
 const NavItems = () => {
     return (
-
+        
     )
 }
 
