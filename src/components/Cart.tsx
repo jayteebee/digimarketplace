@@ -5,10 +5,11 @@ import { Separator } from "./ui/separator";
 import { formatPrice } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 const Cart = () => {
 
-    const itemCount = 1
+    const itemCount = 0
     const fee = 1
   return (
     <Sheet>
@@ -54,7 +55,11 @@ const Cart = () => {
                     </SheetFooter>
                 </div>
             </>
-        ) : (<div></div>)}
+        ) : (<div className="flex h-full flex-col items-center justify-center space-y-1">
+            <div className="relative mb-4 h-60 w-60 text-muted-foreground" aria-hidden="true">
+                <Image src="/hippo-empty-cart.png" fill alt="empty shopping cart hippo" />
+            </div>
+        </div>)}
       </SheetContent>
     </Sheet>
   );
