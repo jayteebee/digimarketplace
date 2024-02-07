@@ -3,6 +3,8 @@ import { PRODUCT_CATEGORIES } from "@/config";
 import { Button } from "./ui/button";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 type Category = typeof PRODUCT_CATEGORIES[number]
 
@@ -42,8 +44,11 @@ const NavItem = ({isAnyOpen, category, isOpen, handleOpen}: NavItemProps) => {
                                         className="group relative text-base sm:text-sm"
                                         >
                                             <div className="relative aspect-video overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-
+                                                <Image src={item.imageSrc} alt="product category image" fill className="object-cover object-center" />
                                             </div>
+                                            <Link href={item.href} className="mt-6 block font-medium text-gray-900">
+                                                {item.name}
+                                            </Link>
                                         </div>
                                     ))}
                                 </div>
