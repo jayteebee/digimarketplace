@@ -17,6 +17,9 @@ export default buildConfig({
             ogImage: "/thumbnail.jpg"
         }
     },
+    rateLimit: {
+        max: 2000,
+    },
     editor: slateEditor({}),
     db: mongooseAdapter({
         url: process.env.MONGODB_URL!,
