@@ -1,3 +1,4 @@
+"use client"
 import { PRODUCT_CATEGORIES } from "@/config";
 import { Button } from "./ui/button";
 
@@ -15,8 +16,8 @@ const NavItem = ({isAnyOpen, category, isOpen, handleOpen}: NavItemProps) => {
     return (
         <div className="flex">
             <div className="relative flex items-center">
-                <Button className="gap-1.5">
-
+                <Button className="gap-1.5" onClick={handleOpen}>
+                    {category.label}
                 </Button>
             </div>
         </div>
