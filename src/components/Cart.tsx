@@ -2,10 +2,11 @@
 import { ShoppingCartIcon } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Separator } from "./ui/separator";
+import { formatPrice } from "@/lib/utils";
 
 const Cart = () => {
 
-    const itemCount = 0
+    const itemCount = 1
   return (
     <Sheet>
       <SheetTrigger className="group -m-2 flex items-center p-2">
@@ -33,7 +34,7 @@ const Cart = () => {
                         </div>
                         <div className="flex">
                             <span className="flex-1">Transaction Fee</span>
-                            <span>1</span>
+                            <span>{formatPrice(1)}</span>
                         </div>
                     </div>
                 </div>
