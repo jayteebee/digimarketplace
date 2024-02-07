@@ -31,6 +31,8 @@ const Navbar = () => {
                                     {user ? null : <Link href="/sign-in" className={buttonVariants({variant: "ghost"})}>
                                         Sign In
                                     </Link> }
+                                    {user ? null : <span className="h-6 w-px bg-gray-200" aria-hidden="true" />}
+                                    {user ? (<p></p>) : <Link href="/sign-up" className={buttonVariants({variant: "ghost"})}>Register</Link> }
                                 </div>
                             </div>
                         </div>
