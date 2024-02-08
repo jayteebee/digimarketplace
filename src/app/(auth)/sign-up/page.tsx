@@ -17,6 +17,8 @@ const Page = () => {
     password: z.string().min(8, {message: 'Password must be at least 8 characters long'}),
   })
 
+  type TAuthCredentialsValidator = z.infer<typeof AuthCredentialsValidator>
+
 const {register, handleSubmit, formState: {errors}} = useForm({
   resolver: zodResolver(AuthCredentialsValidator),
 
