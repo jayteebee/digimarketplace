@@ -28,7 +28,7 @@ const Page = () => {
           </div>
 
           <div className="grid gap-6">
-            <form onSubmit={}>
+            <form >
               <div className="grid gap-2">
                 <div className="grid gap-1 py-2">
                   <Label htmlFor="email">Email</Label>
@@ -39,6 +39,17 @@ const Page = () => {
                     placeholder="you@example.com"
                   />
                 </div>
+
+                <div className="grid gap-1 py-2">
+                  <Label htmlFor="password">Password</Label>
+                  <Input
+                    className={cn({
+                      "focus-visible:ring-red-500": true,
+                    })}
+                    placeholder="PAssword"
+                  />
+                </div>
+
               </div>
             </form>
           </div>
