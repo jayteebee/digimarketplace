@@ -19,7 +19,7 @@ const Page = () => {
 
   type TAuthCredentialsValidator = z.infer<typeof AuthCredentialsValidator>
 
-const {register, handleSubmit, formState: {errors}} = useForm({
+const {register, handleSubmit, formState: {errors}} = useForm<TAuthCredentialsValidator>({
   resolver: zodResolver(AuthCredentialsValidator),
 
 })
