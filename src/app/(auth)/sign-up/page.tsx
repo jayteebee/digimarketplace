@@ -18,7 +18,7 @@ const {register, handleSubmit, formState: {errors}} = useForm<TAuthCredentialsVa
 })
 
 const onSubmit = ({email, password }: TAuthCredentialsValidator) => {
-
+  
 }
 
   return (
