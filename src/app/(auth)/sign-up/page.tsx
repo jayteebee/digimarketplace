@@ -18,7 +18,7 @@ const Page = () => {
   })
 
 const {register, handleSubmit, formState: {errors}} = useForm({
-  resolver: zodResolver(),
+  resolver: zodResolver(AuthCredentialsValidator),
 
 })
 
