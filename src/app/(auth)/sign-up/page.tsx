@@ -24,6 +24,7 @@ const Page = () => {
   });
 
 const {data} = trpc.anyApiRoute.useQuery()
+console.log("🚀 ~ Page ~ data:", data)
 
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {};
 
