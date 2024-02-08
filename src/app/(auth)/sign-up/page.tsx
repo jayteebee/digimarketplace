@@ -49,6 +49,7 @@ const {register, handleSubmit, formState: {errors}} = useForm<TAuthCredentialsVa
                 <div className="grid gap-1 py-2">
                   <Label htmlFor="email">Email</Label>
                   <Input
+                  {...register('email')}
                     className={cn({
                       "focus-visible:ring-red-500": true,
                     })}
@@ -59,6 +60,7 @@ const {register, handleSubmit, formState: {errors}} = useForm<TAuthCredentialsVa
                 <div className="grid gap-1 py-2">
                   <Label htmlFor="password">Password</Label>
                   <Input
+                  {...register('password')}
                     className={cn({
                       "focus-visible:ring-red-500": true,
                     })}
