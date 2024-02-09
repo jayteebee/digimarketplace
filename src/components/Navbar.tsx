@@ -10,7 +10,7 @@ import { cookies } from "next/headers";
 
 const Navbar = async () => {
 const nextCookies = cookies()
-  const {} = await getServerSideUser()
+  const {user} = await getServerSideUser(nextCookies)
 
 
   return (
