@@ -21,7 +21,7 @@ const toEmail = searchParams.to
                 ) : (
                     <div className="flex h-full flex-col items-center justify-center space-y-1">
                         <div className="relative mb-4 h-16 w-16 text-muted-foreground">
-                            <Image src="hippo-email-sent.png" fill alt="hippo email sent image" />
+                            <Image src="/hippo-email-sent.png" fill alt="hippo email sent image" />
                         </div>
 
                         <h3 className="font-semibold text-2xl">Check your email</h3>
