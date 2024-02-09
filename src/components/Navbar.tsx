@@ -46,7 +46,9 @@ const nextCookies = cookies()
                     <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   )}
                   {user ? (
-                    <UserAccountNav />
+                    <UserAccountNav
+                    user={user}
+                    />
                   ) : (
                     <Link
                       href="/sign-up"
