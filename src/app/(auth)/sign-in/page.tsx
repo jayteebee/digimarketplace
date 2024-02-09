@@ -36,23 +36,23 @@ const origin = searchParams.get("origin")
 
 
 const {mutate, isLoading} = trpc.auth.signIn.useMutation({
-  onError: (err) => {
-    if(err.data?.code === "CONFLICT") {
-      toast.error("This email is already in use. Sign in instead?")
-      return
-    }
+ onSuccess: () => {
+  toast.success("Signed in successfully!")
 
-    if(err instanceof ZodError) {
-      toast.error(err.issues[0].message)
-      return
-    }
+  router.refresh()
 
-    toast.error("Something went wrong. Please try again.")
-  },
-  onSuccess: ({sentToEmail}) => {
-    toast.success(`Verification email sent to ${sentToEmail}.`)
-    router.push("/verify-email?to=" + sentToEmail)
+  if(origin) {
+    router.push(`/${origin}`) 
+    return
   }
+
+  if(isSeller) {
+    router.push("/sell") 
+    return
+  }
+
+  router.push("/")
+ }
 })
 
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
