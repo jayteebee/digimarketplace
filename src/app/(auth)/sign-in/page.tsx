@@ -24,6 +24,7 @@ const Page = () => {
 const searchParams = useSearchParams()
 const router = useRouter()
 const isSeller = searchParams.get("as") === "seller"
+const origin = searchParams.get("origin")
 
   const {
     register,
@@ -34,7 +35,7 @@ const isSeller = searchParams.get("as") === "seller"
   });
 
 
-const {mutate, isLoading} = trpc.auth.createPayloadUser.useMutation({
+const {mutate, isLoading} = trpc.auth.signIn.useMutation({
   onError: (err) => {
     if(err.data?.code === "CONFLICT") {
       toast.error("This email is already in use. Sign in instead?")
