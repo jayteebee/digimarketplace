@@ -6,7 +6,7 @@ interface PageProps {
     }
 }
 
-const VerifyEmaulPage = ({searchParams}: PageProps) => {
+const VerifyEmailPage = ({searchParams}: PageProps) => {
 const token = searchParams.token
 const toEmail = searchParams.to
 
@@ -33,4 +33,4 @@ const toEmail = searchParams.to
     )
 }
 
-export default VerifyEmaulPage
+export default VerifyEmailPage
