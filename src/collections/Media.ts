@@ -7,6 +7,9 @@ export const Media: CollectionConfig = {
             return {...data, user: req.user.id}
         }]
     },
+    admin: {
+        hidden: ({user}) => user.role !== "admin",
+    },
     upload: {
         staticURL: "/media",
         staticDir: "media",
