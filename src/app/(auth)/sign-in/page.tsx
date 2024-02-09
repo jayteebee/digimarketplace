@@ -13,26 +13,23 @@ import {
   TAuthCredentialsValidator,
 } from "@/lib/validators/account-credentials-validator";
 import { trpc } from "@/trpc/client";
-import {toast} from "sonner"
+import { toast } from "sonner";
 import { ZodError } from "zod";
 import { useRouter, useSearchParams } from "next/navigation";
 
-
-
 const Page = () => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const isSeller = searchParams.get("as") === "seller";
+  const origin = searchParams.get("origin");
 
-const searchParams = useSearchParams()
-const router = useRouter()
-const isSeller = searchParams.get("as") === "seller"
-const origin = searchParams.get("origin")
+  const continueAsSeller = () => {
+    router.push("?as=seller");
+  };
 
-const continueAsSeller = () => {
-  router.push("?as=seller")
-}
-
-const continueAsBuyer = () => {
-  router.replace("/sign-in", undefined)
-}
+  const continueAsBuyer = () => {
+    router.replace("/sign-in", undefined);
+  };
 
   const {
     register,
@@ -42,35 +39,34 @@ const continueAsBuyer = () => {
     resolver: zodResolver(AuthCredentialsValidator),
   });
 
+  const { mutate: signIn, isLoading } = trpc.auth.signIn.useMutation({
+    onSuccess: () => {
+      toast.success("Signed in successfully!");
 
-const {mutate: signIn, isLoading} = trpc.auth.signIn.useMutation({
- onSuccess: () => {
-  toast.success("Signed in successfully!")
+      router.refresh();
 
-  router.refresh()
+      if (origin) {
+        router.push(`/${origin}`);
+        return;
+      }
 
-  if(origin) {
-    router.push(`/${origin}`) 
-    return
-  }
+      if (isSeller) {
+        router.push("/sell");
+        return;
+      }
 
-  if(isSeller) {
-    router.push("/sell") 
-    return
-  }
-
-  router.push("/")
- },
- onError: (err) => {
-  if(err.data?.code === "UNAUTHORIZED") {
-    toast.error("Invalid email or password")
-    return
-  }
- }
-})
+      router.push("/");
+    },
+    onError: (err) => {
+      if (err.data?.code === "UNAUTHORIZED") {
+        toast.error("Invalid email or password");
+        return;
+      }
+    },
+  });
 
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
-    signIn({email, password})
+    signIn({ email, password });
   };
 
   return (
@@ -105,7 +101,9 @@ const {mutate: signIn, isLoading} = trpc.auth.signIn.useMutation({
                     placeholder="you@example.com"
                   />
                   {errors?.email && (
-                    <p className="text-sm text-red-500">{errors.email.message}</p>
+                    <p className="text-sm text-red-500">
+                      {errors.email.message}
+                    </p>
                   )}
                 </div>
 
@@ -120,7 +118,9 @@ const {mutate: signIn, isLoading} = trpc.auth.signIn.useMutation({
                     type="password"
                   />
                   {errors?.password && (
-                    <p className="text-sm text-red-500">{errors.password.message}</p>
+                    <p className="text-sm text-red-500">
+                      {errors.password.message}
+                    </p>
                   )}
                 </div>
                 <Button>Sign in</Button>
@@ -128,22 +128,33 @@ const {mutate: signIn, isLoading} = trpc.auth.signIn.useMutation({
             </form>
 
             <div className="relative">
-                <div aria-hidden="true" className="absolute inset-0 flex items-center">
-                    <span className="w-full border-t" />
-                </div>
-                <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-background px-2 text-muted-foreground">
-                        or
-                    </span>
-                </div>
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 flex items-center"
+              >
+                <span className="w-full border-t" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-background px-2 text-muted-foreground">
+                  or
+                </span>
+              </div>
             </div>
 
             {isSeller ? (
-              <Button  onClick={continueAsBuyer} variant="secondary" disabled={isLoading}>
+              <Button
+                onClick={continueAsBuyer}
+                variant="secondary"
+                disabled={isLoading}
+              >
                 Continue as customer
               </Button>
             ) : (
-              <Button onClick={continueAsSeller} variant="secondary" disabled={isLoading}>
+              <Button
+                onClick={continueAsSeller}
+                variant="secondary"
+                disabled={isLoading}
+              >
                 Continue as seller
               </Button>
             )}
