@@ -30,13 +30,23 @@ const yourOwnAndPurchased: Access = async ({req}) => {
 
     const {docs: orders} = await req.payload.find({
         collection: "orders",
-        depth: 0,
+        depth: 2,
         where: {
             user: {
                 equals: user.id
             }
         }
     })
+
+    const purchasedProductFileIds = orders.map((order) => {
+        return order.products.map((product) => {
+            if(typeof product === "string") return req.payload.logger.error(
+                "Search depth not sufficient to find product file ids"
+            )
+
+            return typeof product.product_files === "string" ? product.product_files : product.product_files.id
+        })
+    }).filter(Boolean).flat()
 }
 
 export const ProductFiles: CollectionConfig = {
