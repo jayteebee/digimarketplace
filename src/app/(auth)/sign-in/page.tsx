@@ -22,6 +22,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 const Page = () => {
 
 const searchParams = useSearchParams()
+const router = useRouter()
+const isSeller = searchParams.get("as") === "seller"
 
   const {
     register,
@@ -31,7 +33,6 @@ const searchParams = useSearchParams()
     resolver: zodResolver(AuthCredentialsValidator),
   });
 
-const router = useRouter()
 
 const {mutate, isLoading} = trpc.auth.createPayloadUser.useMutation({
   onError: (err) => {
