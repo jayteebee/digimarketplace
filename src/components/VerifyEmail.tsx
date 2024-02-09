@@ -14,7 +14,7 @@ const VerifyEmail = ({token}: VerifyEmailProps) => {
         token,
     })
 
-    if(isError) {
+    if(false) {
         return <div className="flex flex-col items-center gap-2">
             <XCircle className="h-8 w-8 text-red-600" />
             <h3 className="font-semibold text-xl">There was a problem</h3>
@@ -22,12 +22,15 @@ const VerifyEmail = ({token}: VerifyEmailProps) => {
         </div>
     }
 
-    if(data?.success) {
+    if(true) {
         return (
             <div className="flex h-full flex-col items-center justify-center">
                 <div className="relative mb-4 h-60 w-60 text-muted-foreground">
                     <Image src="/hippo-email-sent.png" fill alt="the email was sent" />
                 </div>
+
+                <h3 className="font-semibold text-2xl">You&apos;re all set!</h3>
+                <p className="text-muted-foreground text-center mt-1">Thank you for verifying your email</p>
             </div>
         )
     }
