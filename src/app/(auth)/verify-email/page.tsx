@@ -20,7 +20,7 @@ const token = searchParams.token
                 ) : (
                     <div className="flex h-full flex-col items-center justify-center space-y-1">
                         <div className="relative mb-4 h-16 w-16 text-muted-foreground">
-                            <Image src="hippo-sent-email.png" fill alt="hippo email sent image" />
+                            <Image src="hippo-email-sent.png" fill alt="hippo email sent image" />
                         </div>
                     </div>
                 )}
