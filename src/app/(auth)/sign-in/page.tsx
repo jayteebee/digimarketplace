@@ -26,6 +26,14 @@ const router = useRouter()
 const isSeller = searchParams.get("as") === "seller"
 const origin = searchParams.get("origin")
 
+const continueAsSeller = () => {
+  router.push("?as=seller")
+}
+
+const continueAsBuyer = () => {
+  router.replace("/sign-in", undefined)
+}
+
   const {
     register,
     handleSubmit,
@@ -129,6 +137,16 @@ const {mutate: signIn, isLoading} = trpc.auth.signIn.useMutation({
                     </span>
                 </div>
             </div>
+
+            {isSeller ? (
+              <Button  onClick={continueAsBuyer} variant="secondary" disabled={isLoading}>
+                Continue as customer
+              </Button>
+            ) : (
+              <Button onClick={continueAsSeller} variant="secondary" disabled={isLoading}>
+                Continue as seller
+              </Button>
+            )}
           </div>
         </div>
       </div>
