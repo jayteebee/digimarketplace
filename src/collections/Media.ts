@@ -34,7 +34,7 @@ export const Media: CollectionConfig = {
                 return true
             }
 
-            return await isAdminOrHasAccessToImages()
+            return await isAdminOrHasAccessToImages()({req})
         }
     },
     upload: {
