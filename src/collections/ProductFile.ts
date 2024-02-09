@@ -16,7 +16,7 @@ const yourOwnAndPurchased: Access = async ({req}) => {
     if(user?.role === "admin") return true
     if(!user) return false
 
-    const {} = await req.payload.find({
+    const {docs: products} = await req.payload.find({
         collection: "products",
         depth: 0,
         where: {
@@ -25,6 +25,8 @@ const yourOwnAndPurchased: Access = async ({req}) => {
             }
         }
     })
+
+    const ownProductFileIds = products.map((product) => product.product_files)
 }
 
 export const ProductFiles: CollectionConfig = {
