@@ -35,7 +35,9 @@ export const Media: CollectionConfig = {
             }
 
             return await isAdminOrHasAccessToImages()({req})
-        }
+        },
+        delete: isAdminOrHasAccessToImages(),
+        update: isAdminOrHasAccessToImages(),
     },
     upload: {
         staticURL: "/media",
