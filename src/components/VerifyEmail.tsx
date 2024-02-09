@@ -3,6 +3,8 @@
 import { trpc } from "@/trpc/client"
 import { XCircle } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
+import { buttonVariants } from "./ui/button"
 
 
 interface VerifyEmailProps {
@@ -31,6 +33,7 @@ const VerifyEmail = ({token}: VerifyEmailProps) => {
 
                 <h3 className="font-semibold text-2xl">You&apos;re all set!</h3>
                 <p className="text-muted-foreground text-center mt-1">Thank you for verifying your email</p>
+                <Link href="/sign-in" className={buttonVariants({className: "mt-4"})}>Sign in</Link>
             </div>
         )
     }
