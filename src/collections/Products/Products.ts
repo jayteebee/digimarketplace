@@ -79,48 +79,48 @@ export const Products: CollectionConfig = {
       ],
     },
     {
-        name: "priceId",
-        access: {
-            create: () => false,
-            read: () => false,
-            update: () => false,
-        },
-        type: "text",
-        admin: {
-            hidden: true,
-        },
+      name: "priceId",
+      access: {
+        create: () => false,
+        read: () => false,
+        update: () => false,
+      },
+      type: "text",
+      admin: {
+        hidden: true,
+      },
     },
     {
-        name: "stripeId",
-        access: {
-            create: () => false,
-            read: () => false,
-            update: () => false,
-        },
-        type: "text",
-        admin: {
-            hidden: true,
-        },
+      name: "stripeId",
+      access: {
+        create: () => false,
+        read: () => false,
+        update: () => false,
+      },
+      type: "text",
+      admin: {
+        hidden: true,
+      },
     },
     {
-        name: "images",
-        type: "array",
-        label: "Product Images",
-        minRows: 1,
-        maxRows: 4,
-        required: true,
-        labels: {
-            singular: "Image",
-            plural: "Images",
+      name: "images",
+      type: "array",
+      label: "Product Images",
+      minRows: 1,
+      maxRows: 4,
+      required: true,
+      labels: {
+        singular: "Image",
+        plural: "Images",
+      },
+      fields: [
+        {
+          name: "image",
+          type: "upload",
+          relationTo: "media",
+          required: true,
         },
-        fields: [
-            {
-                name: "image",
-                type: "upload",
-                relationTo: "media",
-                required: true,
-            },
-        ],
-        }
+      ],
+    },
   ],
 };
