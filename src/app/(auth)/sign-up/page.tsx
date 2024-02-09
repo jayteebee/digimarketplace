@@ -30,11 +30,15 @@ const {mutate, isLoading} = trpc.auth.createPayloadUser.useMutation({
   onError: (err) => {
     if(err.data?.code === "CONFLICT") {
       toast.error("This email is already in use. Sign in instead?")
+      return
     }
 
     if(err instanceof ZodError) {
       toast.error(err.issues[0].message)
+      return
     }
+
+    toast.error("Something went wrong. Please try again.")
   }
 })
 
