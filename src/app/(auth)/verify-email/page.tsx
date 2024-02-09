@@ -8,6 +8,7 @@ interface PageProps {
 
 const VerifyEmaulPage = ({searchParams}: PageProps) => {
 const token = searchParams.token
+const toEmail = searchParams.to
 
 
     return (
@@ -22,6 +23,9 @@ const token = searchParams.token
                         <div className="relative mb-4 h-16 w-16 text-muted-foreground">
                             <Image src="hippo-email-sent.png" fill alt="hippo email sent image" />
                         </div>
+
+                        <h3 className="font-semibold text-2xl">Check your email</h3>
+                        {toEmail ? <p className="text-muted-foreground text-center">We sent an email to <span className="font-semibold">{toEmail}</span> with a link to verify your email address.</p> : <p className="text-muted-foreground text-center">We&apos;ve sent a verification link to your email.</p>}
                     </div>
                 )}
             </div>
