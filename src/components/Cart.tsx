@@ -42,7 +42,6 @@ const Cart = () => {
               {items.map(({product}) => (
                 <CartItem key={product.id} />
               ))}
-              Cart Items
             </div>
             <div className="space-y-4 pr-6">
               <Separator />
