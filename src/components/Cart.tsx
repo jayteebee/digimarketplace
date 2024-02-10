@@ -17,9 +17,9 @@ import { useCart } from "@/hooks/use-cart";
 
 const Cart = () => {
   const {items} = useCart()
-
-
   const itemCount = items.length;
+
+  const cartTotal = items.reduce((total, {product}) => total + product.price, 0)
   const fee = 1;
   return (
     <Sheet>
