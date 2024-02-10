@@ -1,4 +1,5 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper"
+import { PRODUCT_CATEGORIES } from "@/config"
 import { getPayloadClient } from "@/get-payload"
 import { formatPrice } from "@/lib/utils"
 import Link from "next/link"
@@ -43,6 +44,8 @@ const Page = async ({params}: PageProps) => {
 const [product] = products
 
 if(!product) return notFound()
+
+const label = PRODUCT_CATEGORIES.find(({value}) => value === product.category)?.label
 
     return (
         <MaxWidthWrapper className="bg-white">
