@@ -1,5 +1,6 @@
 import ImageSlider from "@/components/ImageSlider";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import ProductReel from "@/components/ProductReel";
 import { PRODUCT_CATEGORIES } from "@/config";
 import { getPayloadClient } from "@/get-payload";
 import { formatPrice } from "@/lib/utils";
@@ -128,7 +129,7 @@ const Page = async ({ params }: PageProps) => {
           <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
             <div>
                 <div className="mt-10">
-                    add to cart
+                    
                 </div>
                 <div className="mt-6 text-center">
                     <div className="group inline-flex text-sm text-medium">
@@ -140,6 +141,8 @@ const Page = async ({ params }: PageProps) => {
           </div>
         </div>
       </div>
+
+      <ProductReel href="/products" query={{category: product.category, limit: 4}} title={`Similar ${label}`} subtitle={`Browse similar high quality ${label} just like '${product.name}'`} />
     </MaxWidthWrapper>
   );
 };
