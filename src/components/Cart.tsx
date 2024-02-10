@@ -14,6 +14,7 @@ import { buttonVariants } from "./ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { useCart } from "@/hooks/use-cart";
+import { ScrollArea } from "./ui/scroll-area";
 
 const Cart = () => {
   const {items} = useCart()
@@ -39,9 +40,11 @@ const Cart = () => {
         {itemCount > 0 ? (
           <>
             <div className="flex w-full flex-col pr-6">
+              <ScrollArea>
               {items.map(({product}) => (
                 <CartItem key={product.id} />
               ))}
+              </ScrollArea>
             </div>
             <div className="space-y-4 pr-6">
               <Separator />
