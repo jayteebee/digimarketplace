@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Skeleton } from "./ui/skeleton";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { PRODUCT_CATEGORIES } from "@/config";
 
 interface ProductListingProps {
   product: Product | null;
@@ -24,6 +25,8 @@ const ProductListing = ({ product, index }: ProductListingProps) => {
 
   if (!product || !isVisible) return <ProductPlaceholder />;
 
+  const label = PRODUCT_CATEGORIES.find(({value}) => value === product.category)?.label
+
   if (isVisible && product) {
     return (
       <Link
@@ -31,7 +34,14 @@ const ProductListing = ({ product, index }: ProductListingProps) => {
           "visible animate-in fade-in-5": isVisible,
         })}
         href={`/product/${product.id}`}
-      ></Link>
+      >
+        <div className="flex flex-col w-full">
+            <h3 className="mt-4 font-medium text-sm text-gray-700">{product.name}</h3>
+            <p className="mt-1 text-sm text-gray-500">
+                {label}
+            </p>
+        </div>
+      </Link>
     );
   }
 };
