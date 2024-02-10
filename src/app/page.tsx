@@ -43,7 +43,7 @@ export default function Home() {
         </div>
       </div>
 
-      <ProductReel />
+      <ProductReel title="Brand new" />
     </MaxWidthWrapper>
     
     <section className="border-t border-gray-200 bg-gray-50">
