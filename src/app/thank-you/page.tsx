@@ -3,7 +3,7 @@ import Image from "next/image"
 import {cookies} from "next/headers"
 import { getPayloadClient } from "@/get-payload"
 import { notFound, redirect } from "next/navigation"
-import { Product, ProductFile } from "@/payload-types"
+import { Product, ProductFile, User } from "@/payload-types"
 import { PRODUCT_CATEGORIES } from "@/config"
 import { formatPrice } from "@/lib/utils"
 import Link from "next/link"
@@ -126,7 +126,11 @@ const products = order.products as Product[]
                                     </div>
                                 </div>
 
-                                <PaymentStatus />
+                                <PaymentStatus
+                                isPaid={order._isPaid}
+                                orderId={order.id}
+                                orderEmail={(order.user as User).email}
+                                />
 
                                 <div className="mt-16 border-t border-gray-200 py-6 text-right">
                                     <Link href="/products" className="text-sm font-medium text-blue-600 hover:text-blue-600" >
