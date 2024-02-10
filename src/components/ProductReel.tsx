@@ -14,8 +14,10 @@ const FALLBACK_LIMIT = 4
 const ProductReel = (props: ProductReelProps) => {
   const { title, subtitle, href, query } = props;
 
-    const {} = trpc.getInfiniteProducts.useInfiniteQuery({
+    const {data} = trpc.getInfiniteProducts.useInfiniteQuery({
         limit: query.limit ?? FALLBACK_LIMIT, query
+    }, {
+        getNextPageParam: (lastPage) => lastPage.nextPage,
     })
 
   return (
