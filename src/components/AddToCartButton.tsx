@@ -11,11 +11,13 @@ useEffect(() => {
     }, 2000)
 
     return () => clearTimeout(timeout)
-}, [])
+}, [isSuccess])
 
     return (
-        <Button size="lg" className="w-full" >
-            Add to cart
+        <Button onClick={(() => {
+            setIsSuccess(true)
+        })} size="lg" className="w-full" >
+            {isSuccess ? "Added to cart" : "Add to cart"}
         </Button>
     )
 }
