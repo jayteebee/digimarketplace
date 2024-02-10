@@ -1,3 +1,4 @@
+import ImageSlider from "@/components/ImageSlider"
 import MaxWidthWrapper from "@/components/MaxWidthWrapper"
 import { PRODUCT_CATEGORIES } from "@/config"
 import { getPayloadClient } from "@/get-payload"
@@ -48,11 +49,12 @@ if(!product) return notFound()
 
 const label = PRODUCT_CATEGORIES.find(({value}) => value === product.category)?.label
 
+const validUrls = product.images.map(({image}) => (typeof image === 'string' ? image : image.url)).filter(Boolean) as string[]
+
     return (
         <MaxWidthWrapper className="bg-white">
             <div className="bg-white">
                 <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-                    {/* Product Details */}
                     <div className="lg:max-w-lg lg:self-end">
                         <ol className="flex items-center space-x-2">
                             {BREADCRUMBS.map((breadcrumb, i) => (
@@ -97,6 +99,12 @@ const label = PRODUCT_CATEGORIES.find(({value}) => value === product.category)?.
                             </div>
                         </section>
                     </div>
+
+                       <div className="mt-10 lg:col-start-2 lg:row-start-2 lg:mt-0 lg:self-center">
+                                    <div className="aspect-square rounded-lg">
+                                        <ImageSlider urls={validUrls} />
+                                    </div>
+                        </div> 
                 </div>
             </div>
         </MaxWidthWrapper>
