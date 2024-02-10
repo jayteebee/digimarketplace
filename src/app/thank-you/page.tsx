@@ -39,6 +39,11 @@ const ThankYouPage = async ({searchParams}: PageProps) => {
         return redirect(`/sign-in?origin=thank-you?orderId=${order.id}`)
     }
 
+const products = order.products as Product[]
+
+    const orderTotal = products.reduce((total, product) => {
+        return total + product.price
+    }, 0)
 
 
     return (
@@ -102,6 +107,13 @@ const ThankYouPage = async ({searchParams}: PageProps) => {
                                         )
                                     })}
                                 </ul>
+
+                                <div className="space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-muted-foreground">
+                                    <div className="flex justify-between">
+                                        <p>Subtotal</p>
+                                        <p>{formatPrice(orderTotal)}</p>
+                                    </div>
+                                </div>
                             </div>
                     </div>
                 </div>
