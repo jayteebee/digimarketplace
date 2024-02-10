@@ -2,7 +2,7 @@ import { getServerSideUser } from "@/lib/payload-utils"
 import Image from "next/image"
 import {cookies} from "next/headers"
 import { getPayloadClient } from "@/get-payload"
-import { notFound } from "next/navigation"
+import { notFound, redirect } from "next/navigation"
 
 interface PageProps {
     searchParams: {[key: string]: string | string[] | undefined}
@@ -31,6 +31,12 @@ const ThankYouPage = async ({searchParams}: PageProps) => {
     if(!order) return notFound()
 
     const orderUserId = typeof order.user === "string" ? order.user : order.user.id
+    
+    if(orderUserId !== user?.id) {
+        return redirect(`/sign-in?origin=thank-you?orderId=${order.id}`)
+    }
+
+
 
     return (
         <main className="relative lg:min-h-full">
@@ -43,6 +49,11 @@ const ThankYouPage = async ({searchParams}: PageProps) => {
                     <div className="lg:col-start-2">
                         <p className="text-sm font-medium text-blue-600">Order successful</p>
                         <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Thanks for ordering</h1>
+
+                        {order._isPaid ? <p className="mt-2 text-base text-muted-foreground">
+                            Your order has been confirmed and is available to download below. Your receipt and order details have been sent to 
+                            {typeof order.user !== "string" ? <span className="font-medium text-gray-900">{order.user.email}</span> : null}.
+                        </p> : <p></p>}
                     </div>
                 </div>
             </div>
