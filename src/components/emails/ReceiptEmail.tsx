@@ -13,6 +13,7 @@ import {
   Row,
   Section,
   Text,
+  render,
 } from "@react-email/components";
 import { format } from "date-fns";
 
@@ -164,6 +165,10 @@ export const ReceiptEmail = ({
     </Html>
   );
 };
+
+export const ReceiptEmailHtml = (
+  props: ReceiptEmailProps
+) => render(<ReceiptEmail {...props} />, {pretty: true})
 
 const main = {
   fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
