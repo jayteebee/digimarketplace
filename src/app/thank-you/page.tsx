@@ -56,6 +56,11 @@ const ThankYouPage = async ({searchParams}: PageProps) => {
                         </p> : <p className="mt-2 text-base text-muted-foreground">
                             We appreciate your order, we are currently processing it. Hang tight and we will send you an email soon.
                             </p>}
+
+                            <div className="mt-16 text-sm font-medium">
+                                <div className="text-muted-foreground">Order number.</div>
+                                <div className="mt-2 text-gray-900">{order.id}</div>
+                            </div>
                     </div>
                 </div>
             </div>
