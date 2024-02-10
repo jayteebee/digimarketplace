@@ -51,7 +51,7 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
         >
           <ChevronRight className="h-4 w-4 text-zinc-700" />
         </button>
-        <button></button>
+        
       </div>
 
       <Swiper
