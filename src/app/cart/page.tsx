@@ -31,10 +31,15 @@ const Page = () => {
                                 <div aria-hidden="true" className="relative mb-4 h-40 w-40 text-muted-foreground">
                                     <Image src="/hippo-empty-cart.png" fill loading="eager" alt="empty shopping cart hippo" />
                                 </div>
+
+                                <h3 className="font-semibold text-2xl">Your cart is empty</h3>
+                                <p className="text-muted-foreground text-center">Whoops! Nothing to show here yet.</p>
                             </div>
                         ) : null }
 
-
+                            <ul className={cn({
+                                "divide-y divide-gray-200 border-b border-t border-gray-200": isMounted && items.length > 0
+                            })}></ul>
                     </div>
                 </div>
             </div>
