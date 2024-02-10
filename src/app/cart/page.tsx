@@ -86,36 +86,45 @@ const Page = () => {
 
                       <div className="ml-4 flex-1 flex-col justify-between sm:ml-6">
                         <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
-                            <div>
-                                <div className="flex justify-between">
-                                    <h3 className="text-sm">
-                                        <Link href={`/product/${product.id}`} className="font-medium text-gray-700 hover:text-gray-800">{product.name}</Link>
-                                    </h3>
-                                </div>
-
-                                <div className="mt-1 flex text-sm">
-                                    <p className="text-muted-foreground">Category: {label}</p>
-                                </div>
-
-                                <p className="mt-1 text-sm font-medium text-gray-900">{formatPrice(product.price)}</p>
+                          <div>
+                            <div className="flex justify-between">
+                              <h3 className="text-sm">
+                                <Link
+                                  href={`/product/${product.id}`}
+                                  className="font-medium text-gray-700 hover:text-gray-800"
+                                >
+                                  {product.name}
+                                </Link>
+                              </h3>
                             </div>
 
-                            <div className="mt-4 sm:mt-0 sm:pr-9 w-20">
-                                <div className="absolute right-0 top-0">
-                                    <Button
-                                    onClick={() => removeItem(product.id)}
-                                    aria-label="remove product"
-                                    variant="ghost"
-                                    >
-                                        <X className="h-5 w-5" aria-hidden="true" />
-                                        </Button>
-                                </div>
+                            <div className="mt-1 flex text-sm">
+                              <p className="text-muted-foreground">
+                                Category: {label}
+                              </p>
                             </div>
+
+                            <p className="mt-1 text-sm font-medium text-gray-900">
+                              {formatPrice(product.price)}
+                            </p>
+                          </div>
+
+                          <div className="mt-4 sm:mt-0 sm:pr-9 w-20">
+                            <div className="absolute right-0 top-0">
+                              <Button
+                                onClick={() => removeItem(product.id)}
+                                aria-label="remove product"
+                                variant="ghost"
+                              >
+                                <X className="h-5 w-5" aria-hidden="true" />
+                              </Button>
+                            </div>
+                          </div>
                         </div>
 
                         <p className="mt-4 flex space-x-2 text-sm text-gray-700">
-                            <Check className="h-5 w-5 flex-shrink-0 text-green-500" />
-                            <span >Eligible for instant delivery</span>
+                          <Check className="h-5 w-5 flex-shrink-0 text-green-500" />
+                          <span>Eligible for instant delivery</span>
                         </p>
                       </div>
                     </li>
