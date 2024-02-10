@@ -39,7 +39,9 @@ const Cart = () => {
         {itemCount > 0 ? (
           <>
             <div className="flex w-full flex-col pr-6">
-              {/* TODO: Cart Logic */}
+              {items.map(({product}) => (
+                <CartItem />
+              ))}
               Cart Items
             </div>
             <div className="space-y-4 pr-6">
