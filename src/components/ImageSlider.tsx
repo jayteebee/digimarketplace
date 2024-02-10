@@ -1,3 +1,5 @@
+import {Swiper, SwiperSlide} from 'swiper/react';
+
 interface ImageSliderProps {
     urls: string[];
 }
@@ -13,6 +15,8 @@ const inactiveStyles = "hidden text-gray-400"
                 <button></button>
                 <button></button>
             </div>
+
+            <Swiper className='h-full w-full'></Swiper>
         </div>
     )
 }
