@@ -3,10 +3,17 @@
 import { useCart } from "@/hooks/use-cart";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const Page = () => {
 
     const {items, removeItem} = useCart()
+
+    const [isMounted, setIsMounted] = useState<boolean>(false)
+
+    useEffect(() => {
+        setIsMounted(true)
+    }, [])
 
     return (
         <div className="bg-white">
@@ -26,6 +33,8 @@ const Page = () => {
                                 </div>
                             </div>
                         ) : null }
+
+
                     </div>
                 </div>
             </div>
