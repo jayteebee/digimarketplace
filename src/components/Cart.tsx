@@ -40,7 +40,7 @@ const Cart = () => {
           <>
             <div className="flex w-full flex-col pr-6">
               {items.map(({product}) => (
-                <CartItem />
+                <CartItem key={product.id} />
               ))}
               Cart Items
             </div>
