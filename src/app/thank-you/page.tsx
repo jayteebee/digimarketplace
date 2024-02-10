@@ -7,6 +7,7 @@ import { Product, ProductFile } from "@/payload-types"
 import { PRODUCT_CATEGORIES } from "@/config"
 import { formatPrice } from "@/lib/utils"
 import Link from "next/link"
+import PaymentStatus from "@/components/PaymentStatus"
 
 interface PageProps {
     searchParams: {[key: string]: string | string[] | undefined}
@@ -124,6 +125,8 @@ const products = order.products as Product[]
                                         <p className="text-base">{formatPrice(orderTotal + 1)}</p>
                                     </div>
                                 </div>
+
+                                <PaymentStatus />
 
                                 <div className="mt-16 border-t border-gray-200 py-6 text-right">
                                     <Link href="/products" className="text-sm font-medium text-blue-600 hover:text-blue-600" >
