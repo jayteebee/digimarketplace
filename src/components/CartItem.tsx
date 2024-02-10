@@ -9,6 +9,7 @@ const CartItem = ({product}: {product: Product}) => {
 
     const {image} = product.images[0]
 
+
     const {removeItem} = useCart()
 
     const label = PRODUCT_CATEGORIES.find(
