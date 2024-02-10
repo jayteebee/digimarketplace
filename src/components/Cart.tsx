@@ -13,9 +13,13 @@ import { formatPrice } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { useCart } from "@/hooks/use-cart";
 
 const Cart = () => {
-  const itemCount = 0;
+  const {items} = useCart()
+
+
+  const itemCount = items.length;
   const fee = 1;
   return (
     <Sheet>
