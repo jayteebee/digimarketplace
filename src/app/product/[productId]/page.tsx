@@ -1,5 +1,6 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper"
 import { getPayloadClient } from "@/get-payload"
+import { formatPrice } from "@/lib/utils"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
@@ -73,6 +74,15 @@ if(!product) return notFound()
                         <div className="mt-4">
                             <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{product.name}</h1>
                         </div>
+
+                        <section className="mt-4">
+                            <div className="flex items-center">
+                                <p className="font-medium text-gray-900">{formatPrice(product.price)}</p>
+                                <div className="ml-4 border-l text-muted-foreground border-gray-300 pl-4">
+                                    {label}
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
