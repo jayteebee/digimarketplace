@@ -51,9 +51,11 @@ const ThankYouPage = async ({searchParams}: PageProps) => {
                         <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Thanks for ordering</h1>
 
                         {order._isPaid ? <p className="mt-2 text-base text-muted-foreground">
-                            Your order has been confirmed and is available to download below. Your receipt and order details have been sent to 
+                            Your order has been confirmed and is available to download below. Your receipt and order details have been sent to {` `} 
                             {typeof order.user !== "string" ? <span className="font-medium text-gray-900">{order.user.email}</span> : null}.
-                        </p> : <p></p>}
+                        </p> : <p className="mt-2 text-base text-muted-foreground">
+                            We appreciate your order, we are currently processing it. Hang tight and we will send you an email soon.
+                            </p>}
                     </div>
                 </div>
             </div>
