@@ -6,6 +6,7 @@ import { notFound, redirect } from "next/navigation"
 import { Product, ProductFile } from "@/payload-types"
 import { PRODUCT_CATEGORIES } from "@/config"
 import { formatPrice } from "@/lib/utils"
+import Link from "next/link"
 
 interface PageProps {
     searchParams: {[key: string]: string | string[] | undefined}
@@ -122,6 +123,12 @@ const products = order.products as Product[]
                                         <p className="text-base ">Total</p>
                                         <p className="text-base">{formatPrice(orderTotal + 1)}</p>
                                     </div>
+                                </div>
+
+                                <div className="mt-16 border-t border-gray-200 py-6 text-right">
+                                    <Link href="/products" className="text-sm font-medium text-blue-600 hover:text-blue-600" >
+                                        Continue Shopping &rarr;
+                                    </Link>
                                 </div>
                             </div>
                     </div>
