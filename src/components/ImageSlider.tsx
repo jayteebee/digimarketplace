@@ -38,6 +38,10 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
     <div className="group relative bg-zinc-100 aspect-square overflow-hidden rounded-xl">
       <div className="absolute z-10 inset-0 opacity-0 group-hover:opacity-100 transition">
         <button
+        onClick={(e) => {
+            e.preventDefault()
+            swiper?.slideNext()
+        }}
           className={cn(activeStyles, "right-3 transition", {
             [inactiveStyles]: slideConfig.isEnd,
             "hover:bg-primary-300 text-primary-800 opacity-100":
