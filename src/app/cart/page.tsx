@@ -182,7 +182,9 @@ const Page = () => {
                 <Button
                 disabled={items.length === 0 || isLoading}
                 onClick={() => createCheckoutsession({productIds})}
-                className="w-full" size="lg">Checkout</Button>
+                className="w-full" size="lg">
+                    {isLoading ? <Loader2 className="h-4 w-4 animate-spin mr-1.5" /> : null}
+                    Checkout</Button>
             </div>
           </section>
         </div>
