@@ -16,6 +16,11 @@ const PaymentStatus = ({orderEmail, orderId, isPaid}: PaymentStatusProps) => {
                 <p className="font-medium text-gray-900">Shipping to</p>
                 <p>{orderEmail}</p>
             </div>
+
+            <div>
+                <p className="font-medium text-gray-900">Order Status</p>
+                <p>{isPaid ? "Payment successful" : "Pending Payment"}</p>
+            </div>
         </div>
     )
 }
