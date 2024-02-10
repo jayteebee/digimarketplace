@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PRODUCT_CATEGORIES } from "@/config";
 import { useCart } from "@/hooks/use-cart";
 import { cn, formatPrice } from "@/lib/utils";
-import { X } from "lucide-react";
+import { Check, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -112,6 +112,11 @@ const Page = () => {
                                 </div>
                             </div>
                         </div>
+
+                        <p className="mt-4 flex space-x-2 text-sm text-gray-700">
+                            <Check className="h-5 w-5 flex-shrink-0 text-green-500" />
+                            <span >Eligible for instant delivery</span>
+                        </p>
                       </div>
                     </li>
                   );
