@@ -66,8 +66,11 @@ export const PaymentRouter = router({
                 },
                 line_items,
             })
+
+            return {url: stripeSession.url}
         } catch (error) {
-            
+            console.error(error)
+            return {url: null}
         }
     }),
 })
