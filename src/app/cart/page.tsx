@@ -180,6 +180,7 @@ const Page = () => {
 
             <div className="mt-6">
                 <Button
+                disabled={items.length === 0 || isLoading}
                 onClick={() => createCheckoutsession({productIds})}
                 className="w-full" size="lg">Checkout</Button>
             </div>
