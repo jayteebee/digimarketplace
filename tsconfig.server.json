@@ -7,5 +7,5 @@
         "jsx": "react"
     },
     "include": [
-        "src/server", "src/payload.config.ts"]
+        "src/server.ts", "src/payload.config.ts"]
 }
