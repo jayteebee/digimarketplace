@@ -30,8 +30,8 @@ const Footer = () => {
                                 <div className="text-center relative mx-auto max-w-sm">
                                     <h3 className="font-semibold text-gray-900">Become a seller</h3>
                                     <p className="mt-2 text-sm text-muted-foreground">
-                                        If you&apos;d like to sell high-quality digital products, you can do so in minutes.
-                                        <Link href="/sign-in?as=seller">Get started</Link>
+                                        If you&apos;d like to sell high-quality digital products, you can do so in minutes.{` `}
+                                        <Link href="/sign-in?as=seller" className="whitespace-nowrap font-medium text-black hover:text-zinc-900">Get started</Link>
                                     </p>
                                 </div>
                             </div>
