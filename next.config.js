@@ -1,13 +1,17 @@
 /** @type {import('next').NextConfig} */
-
-
 const nextConfig = {
-    images: {
-        domains: [
-            "localhost",
-            "https://digimarketplace-production.up.railway.app"
-        ]
-    }
-}
+	images: {
+		remotePatterns: [
+			{
+				protocol: "http",
+				hostname: "localhost",
+			},
+			{
+				protocol: "https",
+				hostname: "digimarketplace-production.up.railway.app",
+			},
+		],
+	},
+};
 
 module.exports = nextConfig;
